@@ -5,7 +5,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 retry(3) {
-                    git branch: 'main', url: ''
+                    git branch: 'main', url: 'https://github.com/UmeshGayashan/Dispensary'
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t BabyVacBackEnd .'
+                sh 'docker build -t DispencaryBackEnd .'
             }
         }
         stage('Login to Docker Hub') {
@@ -63,7 +63,7 @@ pipeline {
         }
         stage('Push Image') {
             steps {
-                sh 'docker push umeshgayashan/BabyVacBackEnd'
+                sh 'docker push umeshgayashan/Dispencary'
             }
         }
     }
